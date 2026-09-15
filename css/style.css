@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap');
+
+:root{
+    --text-color-white:#ffffff;
+    --text-color-black:#000000;
+    --bg-color-01:#dadada;
+    --color-00:#0000001a;
+    --color-03:#471b96;
+    --color-04:#c0c0c0;
+    --color-05:#232323;
+    --color-06:#004ea2;
+    --color-07:#666;
+    --color-09:#6600ff;
+    --color-10:#3333ff;
+    --color-11:#212d80;
+}
+
+/* Estilos globais */
+*{
+    margin: 0; /* Remove todas as margens externas padrão dos elementos */
+    padding: 0; /* Remove todos os preenchimentos internos padrão dos elementos */
+    box-sizing: border-box; /* Define o modelo de caixa para incluir bordas e preenchimentos dentro da largura/altura */
+    text-decoration: none;/* Remove sublinhados ou outros estilos decorativos padrão dos textos (como em links) */
+    border: none; /* Remove bordas padrão de elementos como botões ou campos de entrada */
+    scroll-behavior: smooth; /* Torna o comportamento de rolagem mais suave, ideal para âncoras e navegações */
+}
+
+html {
+    font-family: 'Poppins', sans-serif; /* Define a fonte principal do documento */
+    font-size: 16px; /* Define o tamanho base da fonte */
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* /Estilos globais */
+
+.btn {
+    text-align: center;
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e05454;
+}
+
+/* Header */
+header{
+    position: fixed;
+    width: 100%;
+    height: 66px;
+    padding: 20px 0;  
+    background: var(--bg-color-01);
+    transition: background 0.3s ease-in-out;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    z-index: 600;
+}
+
+.logo{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+    padding: 20px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav ul li {
+    margin: 0 40px 0px 0px;
+}
+
+.nav ul li a {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color-black);
+    transition: color 0.3s ease-in-out;
+}
+
+.nav ul li a:hover {
+    color: var(--color-10);
+}
+
+/* Botão hamburguer */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color-black);
+}
+  
+/* /Header */
+
+/* Footer */
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: var(--color-07);
+    color: var(--text-color-white);
+}
+/* /Footer */
