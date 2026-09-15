@@ -32,90 +32,195 @@ html {
 
 body {
     background-color: #f8f8f8;
-    color: #333;
+    color: var(--text-color-white);
     line-height: 1.6;
 }
 
 /* /Estilos globais */
 
-.btn {
-    text-align: center;
-    background: #ff6b6b;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: #e05454;
-}
-
 /* Header */
-header{
+header {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 66px;
-    padding: 20px 0;  
-    background: var(--bg-color-01);
-    transition: background 0.3s ease-in-out;
+    height: 75px;
+    padding: 0 5%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
-    z-index: 600;
+    background: rgba(13, 15, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 1000;
 }
 
-.logo{
-    font-size: 1.7rem;
-    color: var(--text-color);
-    font-weight: 600;
-    cursor: default;
-    padding: 20px;
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .nav ul {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 2rem;
     list-style: none;
 }
 
-.nav ul li {
-    margin: 0 40px 0px 0px;
-}
-
 .nav ul li a {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--text-color-black);
-    transition: color 0.3s ease-in-out;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
 }
 
 .nav ul li a:hover {
-    color: var(--color-10);
+    color: var(--text-white);
 }
 
-/* Botão hamburguer */
+.nav-btn {
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+}
+
 .menu-toggle {
     display: none;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
-    color: var(--text-color-black);
 }
-  
-/* /Header */
 
-/* Footer */
-footer{
+/* Home com fundo bem mais nítido e iluminado */
+.home {
+    min-height: 100vh;
+    width: 100%;
+    /* Overlay bem suave: só 25% a 35% de preto para dar contraste sem escurecer a foto */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%),
+                url('../img/mercado_gols.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1.2rem;
-    background-color: var(--color-07);
-    color: var(--text-color-white);
+    padding: 100px 5% 40px 5%;
+    text-align: center;
 }
-/* /Footer */
+
+/* Card translúcido claro com efeito de vidro (White Glass) */
+.home-content {
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.12); /* Vidro claro */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 3.5rem 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Sombra de texto para garantir leitura perfeita em qualquer parte clara da foto */
+.home-content h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(0, 230, 118, 0.12);
+    color: var(--accent-green);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+/* Ações / Botões */
+.cta-group {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--accent-green);
+    color: #0d0f12;
+}
+
+.btn-primary:hover {
+    background: #00c853;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 230, 118, 0.25);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-white);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Mini cards de métricas */
+.stats-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 2rem;
+}
+
+.stat-item h3 {
+    font-size: 1.1rem;
+    color: var(--accent-green);
+    margin-bottom: 0.2rem;
+}
+
+.stat-item p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    padding: 1.5rem;
+    text-align: center;
+    background: #080a0c;
+    border-top: 1px solid var(--border-glass);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--color-04);
+    text-decoration: underline;
+}
