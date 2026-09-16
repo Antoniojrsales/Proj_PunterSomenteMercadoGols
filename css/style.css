@@ -1,44 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800&display=swap');
 
-:root{
-    --text-color-white:#ffffff;
-    --text-color-black:#000000;
-    --bg-color-01:#dadada;
-    --color-00:#0000001a;
-    --color-03:#471b96;
-    --color-04:#c0c0c0;
-    --color-05:#232323;
-    --color-06:#004ea2;
-    --color-07:#666;
-    --color-09:#6600ff;
-    --color-10:#3333ff;
-    --color-11:#212d80;
+/* =====================================================
+   VARIÁVEIS GLOBAIS
+===================================================== */
+
+:root {
+    --text-color-white: #ffffff;
+    --text-color-black: #000000;
+
+    --bg-color-01: #dadada;
+
+    --color-00: #0000001a;
+    --color-03: #471b96;
+    --color-04: #c0c0c0;
+    --color-05: #232323;
+    --color-06: #004ea2;
+    --color-07: #666666;
+    --color-09: #6600ff;
+    --color-10: #3333ff;
+    --color-11: #212d80;
+
+    /* Identidade principal do Punter */
+    --bg-dark: #0d0f12;
+    --bg-dark-secondary: #151a21;
+    --bg-dark-tertiary: #1c2530;
+
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.70);
+    --text-muted-light: rgba(255, 255, 255, 0.85);
+
+    --accent-green: #00e676;
+    --accent-green-dark: #00c853;
+
+    --border-glass: rgba(255, 255, 255, 0.14);
+    --border-glass-light: rgba(255, 255, 255, 0.25);
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.18);
+    --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.30);
+
+    --transition: all 0.3s ease;
 }
 
-/* Estilos globais */
-*{
-    margin: 0; /* Remove todas as margens externas padrão dos elementos */
-    padding: 0; /* Remove todos os preenchimentos internos padrão dos elementos */
-    box-sizing: border-box; /* Define o modelo de caixa para incluir bordas e preenchimentos dentro da largura/altura */
-    text-decoration: none;/* Remove sublinhados ou outros estilos decorativos padrão dos textos (como em links) */
-    border: none; /* Remove bordas padrão de elementos como botões ou campos de entrada */
-    scroll-behavior: smooth; /* Torna o comportamento de rolagem mais suave, ideal para âncoras e navegações */
+/* =====================================================
+   RESET / ESTILOS GLOBAIS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    scroll-behavior: smooth;
 }
 
 html {
-    font-family: 'Poppins', sans-serif; /* Define a fonte principal do documento */
-    font-size: 16px; /* Define o tamanho base da fonte */
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #f8f8f8;
-    color: var(--text-color-white);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* /Estilos globais */
+a {
+    color: inherit;
+}
 
-/* Header */
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header {
     position: fixed;
     top: 0;
@@ -46,20 +95,30 @@ header {
     width: 100%;
     height: 75px;
     padding: 0 5%;
+
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background: rgba(13, 15, 18, 0.85);
+
+    background: rgba(13, 15, 18, 0.88);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
     border-bottom: 1px solid var(--border-glass);
+
     z-index: 1000;
 }
 
-.logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+.header-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
+
+/* =====================================================
+   MENU
+===================================================== */
 
 .nav ul {
     display: flex;
@@ -68,159 +127,1039 @@ header {
     list-style: none;
 }
 
+.nav ul li {
+    list-style: none;
+}
+
 .nav ul li a {
-    color: var(--text-muted);
+    position: relative;
+
+    color: var(--text-muted-light);
     font-weight: 500;
     font-size: 0.95rem;
-    transition: color 0.3s;
+
+    transition: var(--transition);
+}
+
+/* Linha inferior animada */
+
+.nav ul li a:not(.whatsapp-link)::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent-green);
+
+    transition: width 0.3s ease;
+}
+
+.nav ul li a:not(.whatsapp-link):hover::after {
+    width: 100%;
 }
 
 .nav ul li a:hover {
     color: var(--text-white);
 }
 
-.nav-btn {
-    padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border-glass);
+/* Botão Entrar no Grupo */
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(0, 230, 118, 0.45);
     border-radius: 8px;
+
+    color: var(--text-white) !important;
+    background: rgba(0, 230, 118, 0.08);
+
+    transition: var(--transition);
 }
+
+.whatsapp-link:hover {
+    background: rgba(0, 230, 118, 0.18);
+    border-color: var(--accent-green);
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   BOTÃO MENU MOBILE
+===================================================== */
 
 .menu-toggle {
     display: none;
+
+    background: transparent;
+    color: var(--text-color-white);
+
     font-size: 1.8rem;
     cursor: pointer;
+
+    z-index: 1100;
 }
 
-/* Home com fundo bem mais nítido e iluminado */
+/* =====================================================
+   HOME / HERO
+===================================================== */
+
 .home {
     min-height: 100vh;
     width: 100%;
-    /* Overlay bem suave: só 25% a 35% de preto para dar contraste sem escurecer a foto */
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.4) 100%),
-                url('../img/mercado_gols.webp'); 
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.25) 0%,
+            rgba(0, 0, 0, 0.45) 100%
+        ),
+        url('../img/mercado_gols.jpg');
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 5% 40px 5%;
+
+    padding: 110px 5% 50px;
+
     text-align: center;
 }
 
-/* Card translúcido claro com efeito de vidro (White Glass) */
+/* Card central */
+
 .home-content {
+    width: 100%;
     max-width: 900px;
-    background: rgba(255, 255, 255, 0.12); /* Vidro claro */
+
+    background: rgba(255, 255, 255, 0.12);
+
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
     border-radius: 20px;
+
     padding: 3.5rem 2.5rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+    box-shadow: var(--shadow-strong);
 }
 
-/* Sombra de texto para garantir leitura perfeita em qualquer parte clara da foto */
+/* Tag superior */
+
+.hero-tag {
+    display: inline-block;
+
+    background: rgba(0, 230, 118, 0.12);
+    color: var(--accent-green);
+
+    border: 1px solid rgba(0, 230, 118, 0.30);
+
+    padding: 6px 16px;
+    border-radius: 30px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 1.5rem;
+}
+
+/* Título */
+
 .home-content h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 800;
     line-height: 1.2;
+
     margin-bottom: 1.2rem;
+
+    color: var(--text-white);
+
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtítulo */
+
+.home-content > p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    max-width: 750px;
+
+    margin: 0 auto 1.2rem;
+
+    color: var(--text-muted-light);
+
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .subtitle {
     font-size: clamp(1rem, 2vw, 1.15rem);
     max-width: 700px;
-    margin: 0 auto 2.5rem auto;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+
+    margin: 0 auto 2rem;
+
+    color: var(--text-muted-light);
 }
 
-.badge {
-    display: inline-block;
-    background: rgba(0, 230, 118, 0.12);
-    color: var(--accent-green);
-    border: 1px solid rgba(0, 230, 118, 0.3);
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+/* Frase de destaque */
+
+.hero-highlight {
+    font-size: 0.95rem !important;
+    font-weight: 500;
+
+    color: var(--accent-green) !important;
+
+    margin-top: 1.2rem !important;
 }
 
-/* Ações / Botões */
-.cta-group {
+/* =====================================================
+   BOTÕES DA HOME
+===================================================== */
+
+.home-buttons {
     display: flex;
     gap: 1.2rem;
+
     justify-content: center;
+    align-items: center;
+
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+
+    margin-top: 2rem;
 }
 
-.btn {
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 14px 28px;
+
     border-radius: 10px;
+
     font-weight: 600;
     font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+    transition: var(--transition);
 }
 
-.btn-primary {
+/* Botão principal */
+
+.primary-button {
     background: var(--accent-green);
     color: #0d0f12;
 }
 
-.btn-primary:hover {
-    background: #00c853;
+.primary-button:hover {
+    background: var(--accent-green-dark);
+
     transform: translateY(-2px);
+
     box-shadow: 0 8px 20px rgba(0, 230, 118, 0.25);
 }
 
-.btn-outline {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* Botão secundário */
+
+.secondary-button {
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
     color: var(--text-white);
 }
 
-.btn-outline:hover {
-    border-color: var(--text-white);
-    background: rgba(255, 255, 255, 0.05);
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: rgba(255, 255, 255, 0.60);
+
+    transform: translateY(-2px);
 }
 
-/* Mini cards de métricas */
-.stats-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    border-top: 1px solid var(--border-glass);
-    padding-top: 2rem;
+/* =====================================================
+   PADRÃO DAS SEÇÕES
+===================================================== */
+
+.about,
+.methodology,
+.result,
+.contact {
+    width: 100%;
+    padding: 100px 5%;
 }
 
-.stat-item h3 {
-    font-size: 1.1rem;
+.about,
+.result {
+    background: var(--bg-dark);
+}
+
+.methodology,
+.contact {
+    background: var(--bg-dark-secondary);
+}
+
+/* =====================================================
+   CONTEÚDO INTERNO DAS SEÇÕES
+===================================================== */
+
+.about-content,
+.methodology-content,
+.result-content,
+.contact-content {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.section-tag {
+    display: inline-block;
+
+    margin-bottom: 1rem;
+
     color: var(--accent-green);
-    margin-bottom: 0.2rem;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.stat-item p {
-    font-size: 0.85rem;
+.about-content h2,
+.methodology-content h2,
+.result-content h2,
+.contact-content h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+
+    line-height: 1.2;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--text-white);
+}
+
+.about-content > p,
+.methodology-content > p,
+.result-content > p,
+.contact-content > p {
+    max-width: 850px;
+
     color: var(--text-muted);
+
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
 }
 
-/* Footer */
-footer {
-    padding: 1.5rem;
-    text-align: center;
-    background: #080a0c;
-    border-top: 1px solid var(--border-glass);
+/* =====================================================
+   CARDS DA SEÇÃO SOBRE
+===================================================== */
+
+.about-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+}
+
+.about-card {
+    padding: 2rem;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid var(--border-glass);
+
+    border-radius: 15px;
+
+    transition: var(--transition);
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border-color: rgba(0, 230, 118, 0.35);
+}
+
+.about-card i {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 1rem;
+
+    border-radius: 10px;
+
+    background: rgba(0, 230, 118, 0.12);
+
+    color: var(--accent-green);
+
+    font-size: 1.3rem;
+}
+
+.about-card h3 {
+    margin-bottom: 0.7rem;
+
+    color: var(--text-white);
+
+    font-size: 1.1rem;
+}
+
+.about-card p {
+    color: var(--text-muted);
+
     font-size: 0.9rem;
+}
+
+/* =====================================================
+   METODOLOGIA
+===================================================== */
+
+.methodology-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+}
+
+.methodology-card {
+    padding: 1.8rem;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid var(--border-glass);
+
+    border-radius: 15px;
+
+    transition: var(--transition);
+}
+
+.methodology-card:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border-color: rgba(0, 230, 118, 0.35);
+}
+
+.methodology-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 1rem;
+
+    border-radius: 10px;
+
+    background: rgba(0, 230, 118, 0.12);
+
+    color: var(--accent-green);
+
+    font-size: 1.2rem;
+}
+
+.methodology-card h3 {
+    color: var(--text-white);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 0.7rem;
+}
+
+.methodology-card p {
+    color: var(--text-muted);
+
+    font-size: 0.88rem;
+}
+
+/* =====================================================
+   MERCADOS
+===================================================== */
+
+.markets-section {
+    margin-top: 3.5rem;
+}
+
+.markets-section h3 {
+    color: var(--text-white);
+
+    font-size: 1.3rem;
+
+    margin-bottom: 1.2rem;
+}
+
+.markets-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.8rem;
+}
+
+.markets-list span {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 17px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 230, 118, 0.08);
+
+    border: 1px solid rgba(0, 230, 118, 0.30);
+
+    color: var(--accent-green);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Aviso da metodologia */
+
+.methodology-warning {
+    margin-top: 2.5rem !important;
+
+    padding: 1rem 1.2rem;
+
+    border-left: 3px solid var(--accent-green);
+
+    background: rgba(0, 230, 118, 0.05);
+
+    color: var(--text-muted-light) !important;
+
+    font-size: 0.9rem !important;
+}
+
+/* =====================================================
+   RESULTADOS
+===================================================== */
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1.5rem;
+
+    margin-top: 3rem;
+}
+
+.result-card {
+    padding: 2rem;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid var(--border-glass);
+
+    border-radius: 15px;
+
+    transition: var(--transition);
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border-color: rgba(0, 230, 118, 0.35);
+}
+
+.result-card i {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 1rem;
+
+    border-radius: 10px;
+
+    background: rgba(0, 230, 118, 0.12);
+
+    color: var(--accent-green);
+
+    font-size: 1.2rem;
+}
+
+.result-card h3 {
+    color: var(--text-white);
+
+    font-size: 1.1rem;
+
+    margin-bottom: 0.7rem;
+}
+
+.result-card p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+/* Mensagem de transparência */
+
+.result-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    margin-top: 2.5rem;
+
+    padding: 1.2rem 1.5rem;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid var(--border-glass);
+
+    border-radius: 12px;
+}
+
+.result-message i {
+    color: var(--accent-green);
+
+    font-size: 1.2rem;
+
+    margin-top: 4px;
+}
+
+.result-message p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   CONTATO / ENTRAR NO GRUPO
+===================================================== */
+
+.contact {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 230, 118, 0.08),
+            rgba(13, 15, 18, 0.20)
+        ),
+        var(--bg-dark-secondary);
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-content > p {
+    max-width: 700px;
+}
+
+.contact-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.8rem;
+
+    margin-top: 1.5rem;
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    background: var(--accent-green);
+
+    color: #0d0f12;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.contact-button:hover {
+    background: var(--accent-green-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(0, 230, 118, 0.25);
+}
+
+/* =====================================================
+   BOTÃO WHATSAPP
+===================================================== */
+
+.button-zap {
+    position: relative;
+    z-index: 1001;
+}
+
+.zap-link {
+    position: fixed;
+
+    width: 60px;
+    height: 60px;
+
+    top: 90px;
+    right: 40px;
+
+    background-color: #25d366;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.zap-link:hover {
+    transform: scale(1.1);
+
+    box-shadow:
+        1px 5px 18px rgba(37, 211, 102, 0.35);
+}
+
+.zap-link i {
+    color: #ffffff;
+
+    font-size: 2rem;
+
+    margin: 0;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 1.8rem 5%;
+
+    text-align: center;
+
+    background: #080a0c;
+
+    border-top: 1px solid var(--border-glass);
+
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer p {
+    color: var(--text-muted);
 }
 
 footer a {
     color: var(--color-04);
+
     text-decoration: underline;
+
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-green);
+}
+
+.footer-disclaimer {
+    font-size: 0.78rem;
+
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* =====================================================
+   RESPONSIVIDADE - TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .nav ul {
+        gap: 1.3rem;
+    }
+
+    .nav ul li a {
+        font-size: 0.88rem;
+    }
+
+    .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .methodology-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVIDADE - CELULAR
+===================================================== */
+
+@media (max-width: 768px) {
+
+    header {
+        height: 65px;
+
+        padding: 0 5%;
+    }
+
+    .header-container {
+        justify-content: flex-end;
+    }
+
+    .menu-toggle {
+        display: block;
+
+        padding: 5px;
+
+        background: transparent;
+
+        color: var(--text-white);
+
+        border: none;
+
+        font-size: 1.8rem;
+
+        cursor: pointer;
+    }
+
+    .nav {
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        padding: 1.5rem 5%;
+
+        background: rgba(8, 10, 12, 0.97);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        border-bottom: 1px solid var(--border-glass);
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .nav ul {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 1.4rem;
+    }
+
+    .nav ul li {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .nav ul li a {
+        display: inline-flex;
+
+        justify-content: center;
+
+        width: 100%;
+
+        font-size: 0.95rem;
+    }
+
+    .nav-cta {
+        width: auto !important;
+
+        padding: 9px 20px !important;
+    }
+
+    /* Hero */
+
+    .home {
+        background-attachment: scroll;
+
+        padding: 100px 5% 40px;
+    }
+
+    .home-content {
+        padding: 2.5rem 1.5rem;
+
+        border-radius: 16px;
+    }
+
+    .home-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .home-content > p {
+        font-size: 0.95rem;
+    }
+
+    .hero-tag {
+        font-size: 0.7rem;
+
+        padding: 6px 12px;
+    }
+
+    .hero-highlight {
+        font-size: 0.85rem !important;
+    }
+
+    .home-buttons {
+        flex-direction: column;
+
+        gap: 0.8rem;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+    /* Seções */
+
+    .about,
+    .methodology,
+    .result,
+    .contact {
+        padding: 75px 5%;
+    }
+
+    .about-content h2,
+    .methodology-content h2,
+    .result-content h2,
+    .contact-content h2 {
+        font-size: clamp(1.8rem, 7vw, 2.3rem);
+    }
+
+    .about-content > p,
+    .methodology-content > p,
+    .result-content > p,
+    .contact-content > p {
+        font-size: 0.92rem;
+    }
+
+    /* Cards */
+
+    .about-cards,
+    .methodology-grid,
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card,
+    .methodology-card,
+    .result-card {
+        padding: 1.5rem;
+    }
+
+    /* WhatsApp */
+
+    .zap-link {
+        width: 52px;
+        height: 52px;
+
+        top: 80px;
+        right: 20px;
+    }
+
+    .zap-link i {
+        font-size: 1.7rem;
+    }
+
+    /* Footer */
+
+    footer {
+        padding: 1.5rem 5%;
+
+        font-size: 0.8rem;
+    }
+
+}
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .home-content {
+        padding: 2rem 1rem;
+    }
+
+    .hero-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+
+    .home-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .primary-button,
+    .secondary-button {
+        font-size: 0.85rem;
+        padding: 12px 20px;
+    }
+
+    .zap-link {
+        right: 15px;
+    }
+
 }

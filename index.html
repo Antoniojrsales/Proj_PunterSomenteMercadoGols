@@ -1,52 +1,606 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punter - Somente mercado de gols</title>
+
+    <title>Antonio Jr. | Inteligência e Dados no Mercado de Gols</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link
+        rel="icon"
+        href="imagens/favicon.ico"
+        type="image/x-icon"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- CSS Principal -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    <!-- Swiper CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    >
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
-        <nav class="nav" id="nav">
-          <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#services">Serviços</a></li>
-          </ul>
-        </nav>
-    </header>
-    <!-- /Header -->
 
-    <section class="home" id="home">
-        <div class="home-content">
-            <h1>Punter — Especialistas no Mercado de Gols</h1>
-            <p>Análises baseadas em dados, probabilidades reais e gestão de risco</p>
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <!-- Botão Menu Mobile -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="nav"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Navegação -->
+            <nav
+                class="nav"
+                id="nav"
+                aria-label="Navegação principal"
+            >
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">Sobre</a>
+                    </li>
+
+                    <li>
+                        <a href="#methodology">Metodologia</a>
+                    </li>
+
+                    <li>
+                        <a href="#result">Resultados</a>
+                    </li>
+
+                    <li>
+                        <a
+                            class="whatsapp-link"
+                            id="whatsapp-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Entrar em contato pelo WhatsApp"
+                        >
+                            Entrar no Grupo
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
         </div>
 
-    </section>
-    <!-- /Home -->
+    </header>
 
-    <!-- Footer -->
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+
+    <main>
+
+        <!-- ================= HOME ================= -->
+
+        <section
+            class="home"
+            id="home"
+        >
+
+            <div class="home-content">
+
+                <span class="hero-tag">
+                    Dados • Probabilidade • Disciplina • Evolução
+                </span>
+
+                <h1>
+                    Antonio Jr. | Inteligência no mercado de Gols
+                </h1>
+
+                <p>
+                    Uma abordagem racional para o mercado de gols,
+                    utilizando dados, estatísticas, probabilidades
+                    e acompanhamento histórico.
+                </p>
+
+                <p class="hero-highlight">
+                    Não buscamos vender certezas.
+                    Buscamos construir análises melhores através de dados.
+                </p>
+
+                <div class="home-buttons">
+
+                    <a
+                        href="#methodology"
+                        class="primary-button"
+                    >
+                        Conheça a metodologia
+                    </a>
+
+                    <a
+                        href="#result"
+                        class="secondary-button"
+                    >
+                        Ver resultados
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= SOBRE ================= -->
+
+        <section
+            class="about"
+            id="about"
+        >
+
+            <div class="about-content">
+
+                <span class="section-tag">
+                    SOBRE O PROJETO
+                </span>
+
+                <h2>
+                    Inteligência aplicada ao mercado de gols
+                </h2>
+
+                <p>
+                    O Punter nasceu com o objetivo de analisar o mercado
+                    de gols através de dados, estatísticas e probabilidades,
+                    buscando identificar padrões e oportunidades com maior
+                    embasamento analítico.
+                </p>
+
+                <p>
+                    O projeto não trabalha com promessas de resultados
+                    garantidos ou fórmulas mágicas. A proposta é acompanhar
+                    o futebol de maneira disciplinada, registrar resultados,
+                    avaliar desempenhos e evoluir continuamente a metodologia.
+                </p>
+
+                <div class="about-cards">
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        <h3>
+                            Dados
+                        </h3>
+
+                        <p>
+                            Análises baseadas em informações estatísticas
+                            e históricos de desempenho.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-brain"></i>
+
+                        <h3>
+                            Inteligência
+                        </h3>
+
+                        <p>
+                            Interpretação dos números junto ao contexto
+                            de cada partida.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fa-solid fa-clipboard-check"></i>
+
+                        <h3>
+                            Disciplina
+                        </h3>
+
+                        <p>
+                            Critérios definidos, acompanhamento e revisão
+                            contínua dos resultados.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= METODOLOGIA ================= -->
+
+        <section
+            class="methodology"
+            id="methodology"
+        >
+
+            <div class="methodology-content">
+
+                <span class="section-tag">
+                    NOSSA METODOLOGIA
+                </span>
+
+                <h2>
+                    Processo baseado em dados e probabilidade
+                </h2>
+
+                <p>
+                    Cada partida é analisada considerando diferentes
+                    indicadores estatísticos, características das equipes,
+                    comportamento ofensivo e defensivo e contexto da competição.
+                </p>
+
+                <div class="methodology-grid">
+
+                    <div class="methodology-card">
+
+                        <div class="methodology-icon">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+
+                        <h3>
+                            Coleta de dados
+                        </h3>
+
+                        <p>
+                            Levantamento de informações recentes, históricos,
+                            desempenho das equipes e indicadores relevantes.
+                        </p>
+
+                    </div>
+
+                    <div class="methodology-card">
+
+                        <div class="methodology-icon">
+                            <i class="fa-solid fa-table-list"></i>
+                        </div>
+
+                        <h3>
+                            Matriz de mercados
+                        </h3>
+
+                        <p>
+                            Comparação entre diferentes mercados de gols,
+                            probabilidades estimadas e força dos sinais.
+                        </p>
+
+                    </div>
+
+                    <div class="methodology-card">
+
+                        <div class="methodology-icon">
+                            <i class="fa-solid fa-filter"></i>
+                        </div>
+
+                        <h3>
+                            Seleção criteriosa
+                        </h3>
+
+                        <p>
+                            Aplicação de filtros e diretrizes para evitar
+                            escolhas baseadas apenas em intuição.
+                        </p>
+
+                    </div>
+
+                    <div class="methodology-card">
+
+                        <div class="methodology-icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+
+                        <h3>
+                            Acompanhamento
+                        </h3>
+
+                        <p>
+                            Registro dos resultados para avaliar consistência,
+                            desempenho e possíveis tendências.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="markets-section">
+
+                    <h3>
+                        Mercados acompanhados
+                    </h3>
+
+                    <div class="markets-list">
+
+                        <span>
+                            O0.5 FT
+                        </span>
+
+                        <span>
+                            O1.5 FT
+                        </span>
+
+                        <span>
+                            O0.5 HT
+                        </span>
+
+                        <span>
+                            BTTS
+                        </span>
+
+                        <span>
+                            O2.5 FT
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p class="methodology-warning">
+                    Probabilidades representam estimativas.
+                    Nenhum sinal é garantia de resultado.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================= RESULTADOS ================= -->
+
+        <section
+            class="result"
+            id="result"
+        >
+
+            <div class="result-content">
+
+                <span class="section-tag">
+                    ACOMPANHAMENTO
+                </span>
+
+                <h2>
+                    Resultados e evolução
+                </h2>
+
+                <p>
+                    O desempenho é acompanhado através de registros,
+                    indicadores estatísticos, taxa de acerto, retorno,
+                    drawdown e análise individual dos mercados.
+                </p>
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <h3>
+                            Taxa de acerto
+                        </h3>
+
+                        <p>
+                            Acompanhamento da consistência dos sinais
+                            ao longo das entradas.
+                        </p>
+
+                    </div>
+
+                    <div class="result-card">
+
+                        <i class="fa-solid fa-sack-dollar"></i>
+
+                        <h3>
+                            Rentabilidade
+                        </h3>
+
+                        <p>
+                            Avaliação do retorno considerando odds,
+                            stakes e resultados acumulados.
+                        </p>
+
+                    </div>
+
+                    <div class="result-card">
+
+                        <i class="fa-solid fa-chart-area"></i>
+
+                        <h3>
+                            Controle de risco
+                        </h3>
+
+                        <p>
+                            Monitoramento de drawdown, reds consecutivos
+                            e comportamento da banca.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="result-message">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        Resultados passados não garantem resultados futuros.
+                        O objetivo é apresentar um processo transparente,
+                        baseado em dados e acompanhamento contínuo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= ENTRAR NO GRUPO ================= -->
+
+        <section
+            class="contact"
+            id="contact"
+        >
+
+            <div class="contact-content">
+
+                <span class="section-tag">
+                    ENTRE PARA O GRUPO
+                </span>
+
+                <h2>
+                    Acompanhe o projeto de perto
+                </h2>
+
+                <p>
+                    Tenha acesso ao acompanhamento das análises,
+                    seleções, matriz de mercados, resultados e evolução
+                    do projeto Punter.
+                </p>
+
+                <p>
+                    Aqui não existe promessa de jogo garantido.
+                    Existe trabalho, dados, critérios e transparência.
+                </p>
+
+                <a
+                    href="#"
+                    class="contact-button"
+                    id="contact-button"
+                >
+                    Quero conhecer o grupo
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
     <footer>
-        <p class="mb-0 small">
-            Copyright &copy; 2026 by 
-            <a href="https://antoniojrsales.github.io/meu_portfolio/" target="_blank" class="text-decoration-none fw-semibold">
-                AntonioJrSales
-            </a>. All Rights Reserved.
-        </p>
+
+        <div class="footer-content">
+
+            <p class="mb-0 small">
+
+                Copyright &copy; 2026 by
+
+                <a
+                    href="https://antoniojrsales.github.io/meu_portfolio/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-decoration-none fw-semibold"
+                >
+                    AntonioJrSales
+                </a>
+
+                . All Rights Reserved.
+
+            </p>
+
+            <p class="footer-disclaimer">
+                Punter — Inteligência e Dados no Mercado de Gols
+            </p>
+
+        </div>
+
     </footer>
-    <!-- /Footer -->
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script>
+
+        // ==========================================
+        // CONFIGURAÇÃO DO WHATSAPP
+        // ==========================================
+
+        const whatsappLink = document.getElementById("whatsapp-link");
+
+        const phoneNumber = "5585992006309";
+
+        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+
+            // Dispositivo móvel
+            whatsappLink.href =
+                "https://api.whatsapp.com/send?phone=" + phoneNumber;
+
+        } else {
+
+            // Computador
+            whatsappLink.href =
+                "https://web.whatsapp.com/send?phone=" + phoneNumber;
+
+        }
+
+        // ==========================================
+        // MENU MOBILE
+        // ==========================================
+
+        const toggle = document.getElementById("menu-toggle");
+
+        const nav = document.getElementById("nav");
+
+        const navItems = document.querySelectorAll(".nav a");
+
+        toggle.addEventListener("click", () => {
+
+            const isActive = nav.classList.toggle("active");
+
+            toggle.setAttribute(
+                "aria-expanded",
+                isActive
+            );
+
+        });
+
+        // Fecha o menu ao clicar em qualquer link
+        navItems.forEach(item => {
+
+            item.addEventListener("click", () => {
+
+                nav.classList.remove("active");
+
+                toggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+    </script>
+
+    <!-- Swiper JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
+
+    <!-- JavaScript Principal -->
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
