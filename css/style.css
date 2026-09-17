@@ -826,6 +826,176 @@ header {
     font-size: 0.9rem;
 }
 
+/* Container do Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+/* Estrutura do Card */
+.metric-card {
+    background-color: #12171f;
+    border: 1px solid rgba(240, 246, 252, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(46, 160, 67, 0.4);
+}
+
+/* Topo do Card */
+.metric-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(240, 246, 252, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.metric-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f0f6fc;
+}
+
+.metric-pill {
+    background: rgba(255, 255, 255, 0.06);
+    color: #8b949e;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Estatísticas em Destaque */
+.metric-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: #8b949e;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0f6fc;
+}
+
+.highlight-green {
+    color: #3fb950;
+}
+
+.highlight-red {
+    color: #f85149;
+}
+
+/* Rodapé do Card */
+.metric-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #8b949e;
+    border-top: 1px dashed rgba(240, 246, 252, 0.08);
+    padding-top: 12px;
+}
+
+.tag-status {
+    color: #e3b341;
+}
+
+/* Bloco do Laboratório */
+.lab-section {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(240, 246, 252, 0.1);
+}
+
+.lab-header h4 {
+    color: #f0f6fc;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lab-header h4 i {
+    color: #a371f7; /* Tom roxo para remeter a laboratório/teste */
+}
+
+.lab-header p {
+    color: #8b949e;
+    font-size: 0.88rem;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+/* Card com leve tom de teste */
+.metric-card.lab-card {
+    border-color: rgba(163, 113, 247, 0.2);
+}
+
+.metric-card.lab-card:hover {
+    border-color: rgba(163, 113, 247, 0.5);
+}
+
+.lab-pill {
+    background: rgba(163, 113, 247, 0.12) !important;
+    color: #d2a8ff !important;
+    border: 1px solid rgba(163, 113, 247, 0.3);
+}
+
+/* Nota de Observação */
+.lab-note {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(227, 179, 65, 0.25);
+    border-left: 4px solid #e3b341;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.lab-note i {
+    color: #e3b341;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.lab-note p {
+    color: #c9d1d9;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.lab-note strong {
+    color: #f0f6fc;
+}
+
 /* =====================================================
    CONTATO / ENTRAR NO GRUPO
 ===================================================== */
