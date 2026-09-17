@@ -470,8 +470,10 @@
 
                 <a
                     href="#"
-                    class="contact-button"
+                    class="contact-button whatsapp-link"
                     id="contact-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Quero conhecer o grupo
                     <i class="fa-solid fa-arrow-right"></i>
@@ -522,23 +524,21 @@
         // CONFIGURAÇÃO DO WHATSAPP
         // ==========================================
 
-        const whatsappLink = document.getElementById("whatsapp-link");
-
         const phoneNumber = "5585992006309";
+        const message = encodeURIComponent("Olá! Gostaria de saber mais sobre o grupo do Mercado de Gols.");
 
-        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // Define a URL base dependendo do dispositivo
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const baseUrl = isMobile 
+            ? `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`
+            : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
 
-            // Dispositivo móvel
-            whatsappLink.href =
-                "https://api.whatsapp.com/send?phone=" + phoneNumber;
+        // Aplica o link em todos os elementos com a classe .whatsapp-link ou IDs específicos
+        const zapElements = document.querySelectorAll(".whatsapp-link, #contact-button");
 
-        } else {
-
-            // Computador
-            whatsappLink.href =
-                "https://web.whatsapp.com/send?phone=" + phoneNumber;
-
-        }
+        zapElements.forEach(el => {
+            el.href = baseUrl;
+        });
 
         // ==========================================
         // MENU MOBILE
