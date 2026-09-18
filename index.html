@@ -348,6 +348,79 @@
                     Nenhum sinal é garantia de resultado.
                 </p>
 
+                <!-- Sub-bloco: Rotina Operacional / Metodologia na Prática -->
+                <div class="methodology-preview">
+                    <div class="preview-header">
+                        <span class="preview-tag">NA PRÁTICA</span>
+                        <h3>Como a metodologia é entregue aos membros</h3>
+                        <p>Acompanhe o fluxo diário de ponta a ponta: do cálculo das probabilidades até o fechamento auditado.</p>
+                    </div>
+
+                    <!-- Container do Swiper -->
+                    <div class="swiper routine-slider">
+                        <div class="swiper-wrapper">
+
+                            <!-- Slide 1: Matriz de Probabilidades -->
+                            <div class="swiper-slide routine-card">
+                                <div class="routine-img-wrapper">
+                                    <img src="../img/matriz-indicadores.png" alt="Matriz de Indicadores Diários">
+                                </div>
+                                <div class="routine-info">
+                                    <span class="step-num">Etapa 01</span>
+                                    <h4>Matriz de Indicadores</h4>
+                                    <p>Mapeamento pré-jogo de todas as partidas do dia com percentuais calculados para cada mercado de gols.</p>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2: Seleção e Stakes -->
+                            <div class="swiper-slide routine-card">
+                                <div class="routine-img-wrapper">
+                                    <img src="../img/selecao-jogos.png" alt="Seleção de Mercados e Gestão de Stakes">
+                                </div>
+                                <div class="routine-info">
+                                    <span class="step-num">Etapa 02</span>
+                                    <h4>Seleção & Gestão de Stake</h4>
+                                    <p>Filtragem das melhores oportunidades de valor com indicação clara da odd mínima e stake calculada.</p>
+                                   
+                                    <div class="audit-legend">
+                                        <span class="legend-title">Sinais:</span>
+                                        <span class="legend-item">+<i class="fa-solid fa-circle dot-green"></i> Muito Forte</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-green"></i> Forte</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-yellow"></i> Médio</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-red"></i> Fraco</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-orange"></i> Laboratório</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Fechamento / Auditoria -->
+                            <div class="swiper-slide routine-card">
+                                <div class="routine-img-wrapper">
+                                    <img src="../img/fechamento-resultados.png" alt="Fechamento de Greens e Reds">
+                                </div>
+                                <div class="routine-info">
+                                    <span class="step-num">Etapa 03</span>
+                                    <h4>Fechamento Transparente</h4>
+                                    <p>Contabilização integral de acertos e erros ao fim da rodada para alimentação contínua do banco de dados.</p>
+
+                                    <div class="audit-legend">
+                                        <span class="legend-title">Auditoria:</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-green"></i> <strong>Greens:</strong> Entradas vencedoras</span>
+                                        <span class="legend-item"><i class="fa-solid fa-circle dot-red"></i> <strong>Reds:</strong> Entradas perdidas</span>
+                                        <span class="legend-item"><i class="fa-solid fa-chart-pie dot-blue"></i> <strong>Taxa:</strong> Aproveitamento diário</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Paginação e Botões de Navegação -->
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -671,6 +744,12 @@
 
     <!-- ================= SCRIPTS ================= -->
 
+    <!-- 1º Biblioteca Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 2º Seu script customizado -->
+    <script src="js/script.js"></script>
+
     <script>
 
         // ==========================================
@@ -732,13 +811,37 @@
 
     </script>
 
-    <!-- Swiper JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-    ></script>
+    <script>
+        const routineSwiper = new Swiper('.routine-slider', {
+            loop: true,
+            slidesPerView: 1, // Mantém 1 slide grande por vez para garantir a leitura nítida
+            spaceBetween: 30,
 
-    <!-- JavaScript Principal -->
-    <script src="js/script.js"></script>
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false,
+            },
+
+            // Paginação (bolinhas)
+            pagination: {
+                el: '.routine-slider .swiper-pagination',
+                clickable: true,
+            },
+
+            // Navegação pelas setas
+            navigation: {
+                nextEl: '.routine-slider .swiper-button-next',
+                prevEl: '.routine-slider .swiper-button-prev',
+            },
+
+            // Suporte para arrastar com rato e toque
+            grabCursor: true,
+            keyboard: {
+                enabled: true,
+            },
+        });
+    </script>
+
 
 </body>
 
